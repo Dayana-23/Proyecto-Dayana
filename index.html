@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 🌸 Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Pokédex Sakura</title>
+</head>
+
+<body>
+
+<!-- 🌸 Pétalos -->
+<div class="sakura">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<h1 class="titulo">🌸 Pokédex Sakura</h1>
+
+<button class="btn" onclick="buscarPokemon()">Buscar Pokémon</button>
+
+<div id="resultado"></div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+resultado.innerHTML = `
+  <div class="card">
+    <h2 class="nombre">🌸 ${datos.name.toUpperCase()} 🌸</h2>
+    <img class="poke-img" src="${datos.sprites.front_default}">
+    <p>✨ Altura: ${datos.height}</p>
+    <p>💖 Peso: ${datos.weight}</p>
+  </div>
+`;
