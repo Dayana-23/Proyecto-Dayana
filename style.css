@@ -1,157 +1,104 @@
-/* 🌸 Base */
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  text-align: center;
-  overflow-x: hidden;
-  transition: background 0.6s ease;
-
-  background: radial-gradient(circle at top left, #ffd1dc, transparent 50%),
-              radial-gradient(circle at bottom right, #ffe4ec, transparent 50%),
-              linear-gradient(135deg, #fff5f8, #ffffff);
-  min-height: 100vh;
+body{
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    background: linear-gradient(135deg,#c084fc,#f9a8d4,#ddd6fe);
+    color: white;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* 🌸 Título */
-.titulo {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  color: #d63384;
-  margin-top: 40px;
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(#ffd700 1.5px, transparent 1.5px),
+        radial-gradient(#ffef99 1.5px, transparent 1.5px);
+    background-size: 50px 50px, 80px 80px;
+    opacity: 0.45;
+    animation: estrellas 10s linear infinite;
+    z-index: -1;
 }
 
-/* 🌸 Botón */
-.btn {
-  margin-top: 15px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.5);
-  transition: 0.3s;
+@keyframes estrellas{
+    from{transform: translateY(0);}
+    to{transform: translateY(70px);}
 }
 
-.btn:hover {
-  transform: scale(1.05);
+header{
+    background: rgba(147,51,234,0.8);
+    padding: 20px;
 }
 
-/* 🌸 Pétalos */
-.sakura {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+nav button{
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    color: purple;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+}
+#inicio{
+    padding: 100px 20px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.busqueda{
+    margin-top: -120px;
+    margin-bottom: 20px;
 }
 
-.sakura span {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: pink;
-  border-radius: 50% 50% 50% 0;
-  animation: fall linear infinite;
+input{
+    padding: 10px;
+    width: 220px;
+    border-radius: 15px;
+    border: none;
 }
 
-.sakura span:nth-child(1) { left: 10%; animation-duration: 8s; }
-.sakura span:nth-child(2) { left: 30%; animation-duration: 10s; }
-.sakura span:nth-child(3) { left: 50%; animation-duration: 7s; }
-.sakura span:nth-child(4) { left: 70%; animation-duration: 9s; }
-.sakura span:nth-child(5) { left: 90%; animation-duration: 11s; }
-
-@keyframes fall {
-  0% { top: -10%; transform: translateX(0) rotate(0); }
-  100% { top: 110%; transform: translateX(100px) rotate(360deg); }
+#btnBuscar{
+    padding: 10px 18px;
+    border: none;
+    border-radius: 15px;
+    background: #f472b6;
+    color: white;
+    cursor: pointer;
 }
 
-/* 🌸 Tarjeta */
-#resultado {
-  width: 320px;
-  margin: 50px auto;
-  background: rgba(255,255,255,0.8);
-  border-radius: 25px;
-  padding: 25px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(255,182,193,0.4);
+#contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* 🌸 Imagen */
-#resultado img {
-  width: 140px;
-  background: white;
-  border-radius: 20px;
-  padding: 10px;
+.card{
+    width: 230px;
+    border-radius: 20px;
+    padding: 15px;
+    border: 9px solid pink;
+    cursor: pointer;
+    background: linear-gradient(135deg,#c084fc,#f9a8d4,#ddd6fe);
+    color: white;
 }
 
-/* 🌸 Nombre */
-#resultado h2 {
-  font-family: 'Playfair Display', serif;
-  color: #d63384;
+.card img{
+    width: 170px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
 }
 
-/* 🌸 Datos */
-#resultado p {
-  background: #ffe4ec;
-  padding: 6px 12px;
-  border-radius: 15px;
-  display: inline-block;
-  margin: 5px;
-}
-
-/* 🌸 Variaciones */
-.card-pastel {
-  background: rgba(255, 240, 245, 0.9);
-}
-
-.card-strong {
-  background: rgba(255, 220, 220, 0.9);
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  transition: 0.5s;
-}
-
-.card {
-  margin: 30px auto;
-  padding: 20px;
-  width: 250px;
-  border-radius: 20px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  animation: aparecer 0.5s ease;
-}
-
-.nombre {
-  font-size: 22px;
-  letter-spacing: 2px;
-}
-
-.poke-img {
-  width: 120px;
-  transition: transform 0.3s;
-}
-
-.poke-img:hover {
-  transform: scale(1.2) rotate(5deg);
-}
-
-/* 🌸 Estilo girly (pastel) */
-.card-pastel {
-  background: rgba(255, 228, 236, 0.8);
-  color: #d6336c;
-  border: 2px solid #ffc0cb;
-}
-
-/* 🔥 Estilo fuerte (vibrante) */
-.card-strong {
-  background: rgba(0,0,0,0.7);
-  color: white;
-  border: 2px solid #ff0000;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.info{
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
 }

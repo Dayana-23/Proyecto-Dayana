@@ -1,42 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disney API</title>
 
-  <!-- 🌸 Fuentes elegantes -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-  <title>Pokédex Sakura</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- 🌸 Pétalos -->
-<div class="sakura">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+    <header>
+        <h1>✨ Disney World ✨</h1>
 
-<h1 class="titulo">🌸 Pokédex Sakura</h1>
+        <nav>
+            <button onclick="mostrarInicio()">Inicio</button>
+            <button onclick="mostrarPersonajes()">Personajes</button>
+            <button onclick="mostrarPeliculas()">Películas</button>
+        </nav>
+    </header>
 
-<button class="btn" onclick="buscarPokemon()">Buscar Pokémon</button>
+    <section id="inicio">
+        <h2>Bienvenido al mundo Disney ✨</h2>
+        <p>Busca personajes y películas de Disney</p>
+       
+        <input type="text" id="buscador" placeholder="Buscar personaje">
+        <button id="btnBuscar">Buscar</button>
 
-<div id="resultado"></div>
+    </section>
 
-<script src="app.js"></script>
+   
 
+    <main id="contenedor"></main>
+
+    <script src="app.js"></script>
 </body>
 </html>
-resultado.innerHTML = `
-  <div class="card">
-    <h2 class="nombre">🌸 ${datos.name.toUpperCase()} 🌸</h2>
-    <img class="poke-img" src="${datos.sprites.front_default}">
-    <p>✨ Altura: ${datos.height}</p>
-    <p>💖 Peso: ${datos.weight}</p>
-  </div>
-`;
