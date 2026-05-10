@@ -102,3 +102,17 @@ input{
     margin-top: 10px;
     font-size: 14px;
 }
+@media(max-width:768px){
+    .card{
+        width: 180px;
+    }
+
+    input{
+        width: 180px;
+    }
+
+    nav button{
+        margin: 3px;
+        padding: 8px 14px;
+    }
+}
