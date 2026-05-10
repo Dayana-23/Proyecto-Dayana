@@ -1,9 +1,13 @@
 const api = "https://api.disneyapi.dev/character?page=1";
 
 async function obtenerDatos(){
-    const respuesta = await fetch(api);
-    const datos = await respuesta.json();
-    return datos.data;
+    try{
+        const respuesta = await fetch(api);
+        const datos = await respuesta.json();
+        return datos.data;
+    }catch(error){
+        console.log("Error al cargar API", error);
+    }
 }
 
 function mostrarInicio(){
@@ -44,9 +48,11 @@ async function mostrarPersonajes(){
                     <p>${personaje.films[0] || "Disney"}</p>
 
                     <div class="info">
-                        <p>Aparece en: ${detalle}</p>
-                        <p>Creador: Disney</p>
-                    </div>
+   <p>Aparece en: ${detalle}</p>
+   <p>Películas: ${personaje.films.length}</p>
+   <p>Series: ${personaje.tvShows.length}</p>
+</div>
+        
                 </div>
             `;
         }
