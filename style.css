@@ -41,29 +41,43 @@ nav button{
     cursor: pointer;
     font-family: 'Cinzel', serif;
 }
+
 #inicio{
     padding: 100px 20px;
-    min-height: 70vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-.busqueda{
-    margin-top: -120px;
+
+#inicio h2{
+    font-size: 42px;
+}
+
+.frase{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.decoracion{
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
 input{
-    padding: 10px;
-    width: 220px;
-    border-radius: 15px;
+    padding: 12px;
+    width: 260px;
+    border-radius: 20px;
     border: none;
+    text-align: center;
 }
 
 #btnBuscar{
+    margin-top: 12px;
     padding: 10px 18px;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     background: #f472b6;
     color: white;
     cursor: pointer;
@@ -102,6 +116,7 @@ input{
     margin-top: 10px;
     font-size: 14px;
 }
+
 @media(max-width:768px){
     .card{
         width: 180px;
