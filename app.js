@@ -138,3 +138,7 @@ document
 .addEventListener("click", buscarPersonaje);
 
 mostrarInicio();
+function mostrarInicio(){
+    document.getElementById("inicio").style.display = "block";
+    document.getElementById("contenedor").innerHTML = "<h2>CAMBIO NUEVO ✨</h2>";
+}
