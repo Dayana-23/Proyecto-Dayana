@@ -89,49 +89,54 @@ async function mostrarPeliculas(){
     });
 }
 
+
 async function buscarPersonaje(){
-    let nombre = document.getElementById("buscador").value
-        .trim()
-        .toLowerCase();
+    let nombre = document.getElementById("buscador").value.trim();
 
     document.getElementById("inicio").style.display = "none";
 
     let contenedor = document.getElementById("contenedor");
     contenedor.innerHTML = "";
 
-    let personajes = await obtenerDatos();
+    try{
+        let respuesta = await fetch(
+            `https://api.disneyapi.dev/character?name=${nombre}`
+        );
 
-    let resultados = personajes.filter(personaje =>
-        personaje.name.toLowerCase().includes(nombre)
-    );
+        let datos = await respuesta.json();
 
-    if(resultados.length === 0){
-        contenedor.innerHTML = "<p>No se encontró el personaje ✨</p>";
-        return;
-    }
+        if(datos.data.length === 0){
+            contenedor.innerHTML = "<p>No se encontró el personaje ✨</p>";
+            return;
+        }
 
-    resultados.forEach(personaje => {
+        datos.data.forEach(personaje => {
 
-        let detalle =
-            personaje.tvShows?.[0] ||
-            personaje.videoGames?.[0] ||
-            personaje.films?.[0] ||
-            "Disney";
+            let detalle =
+                personaje.tvShows?.[0] ||
+                personaje.videoGames?.[0] ||
+                personaje.films?.[0] ||
+                "Disney";
 
-        contenedor.innerHTML += `
-            <div class="card" onclick="cambiarInfo(this)">
-                <img src="${personaje.imageUrl}">
-                <h3>${personaje.name}</h3>
-                <p>${personaje.films[0] || "Disney"}</p>
+            contenedor.innerHTML += `
+                <div class="card" onclick="cambiarInfo(this)">
+                    <img src="${personaje.imageUrl}">
+                    <h3>${personaje.name}</h3>
+                    <p>${personaje.films[0] || "Disney"}</p>
 
-                <div class="info">
-                    <p>Aparece en: ${detalle}</p>
-                    <p>Películas: ${personaje.films.length}</p>
-                    <p>Series: ${personaje.tvShows.length}</p>
+                    <div class="info">
+                        <p>Aparece en: ${detalle}</p>
+                        <p>Películas: ${personaje.films.length}</p>
+                        <p>Series: ${personaje.tvShows.length}</p>
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+
+    }catch(error){
+        contenedor.innerHTML = "<p>Error al buscar personaje</p>";
+        console.log(error);
+    }
 }
 document
 .getElementById("btnBuscar")
