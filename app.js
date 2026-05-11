@@ -2,9 +2,19 @@ const api = "https://api.disneyapi.dev/character?page=1";
 
 async function obtenerDatos(){
     try{
-        const respuesta = await fetch(api);
-        const datos = await respuesta.json();
-        return datos.data;
+        let todos = [];
+
+        for(let i = 1; i <= 5; i++){
+            const respuesta = await fetch(
+                `https://api.disneyapi.dev/character?page=${i}`
+            );
+
+            const datos = await respuesta.json();
+            todos = todos.concat(datos.data);
+        }
+
+        return todos;
+
     }catch(error){
         console.log("Error al cargar API", error);
     }
