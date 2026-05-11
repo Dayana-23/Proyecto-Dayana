@@ -177,3 +177,24 @@ input{
         font-size: 30px;
     }
 }
+.rapunzel-torre{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 220px;
+    opacity: 0.9;
+    pointer-events: none;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+@keyframes flotar{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
