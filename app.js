@@ -153,5 +153,5 @@ document
 .addEventListener("click", buscarPersonaje);
 
 mostrarInicio();
-
+personaje.name.toLowerCase().includes(nombre)
 
