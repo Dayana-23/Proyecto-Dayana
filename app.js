@@ -90,20 +90,34 @@ async function mostrarPeliculas(){
 }
 
 async function buscarPersonaje(){
-    let nombre = document.getElementById("buscador").value;
-
-    let respuesta = await fetch(
-        "https://api.disneyapi.dev/character?name=" + nombre
-    );
-
-    let datos = await respuesta.json();
+    let nombre = document.getElementById("buscador").value
+        .trim()
+        .toLowerCase();
 
     document.getElementById("inicio").style.display = "none";
 
     let contenedor = document.getElementById("contenedor");
     contenedor.innerHTML = "";
 
-    datos.data.forEach(personaje => {
+    let personajes = await obtenerDatos();
+
+    let resultados = personajes.filter(personaje =>
+        personaje.name.toLowerCase().includes(nombre)
+    );
+
+    if(resultados.length === 0){
+        contenedor.innerHTML = "<p>No se encontró el personaje ✨</p>";
+        return;
+    }
+
+    resultados.forEach(personaje => {
+
+        let detalle =
+            personaje.tvShows?.[0] ||
+            personaje.videoGames?.[0] ||
+            personaje.films?.[0] ||
+            "Disney";
+
         contenedor.innerHTML += `
             <div class="card" onclick="cambiarInfo(this)">
                 <img src="${personaje.imageUrl}">
@@ -111,13 +125,14 @@ async function buscarPersonaje(){
                 <p>${personaje.films[0] || "Disney"}</p>
 
                 <div class="info">
-                    <p>Personalidad: personaje importante y reconocido de Disney.</p>
+                    <p>Aparece en: ${detalle}</p>
+                    <p>Películas: ${personaje.films.length}</p>
+                    <p>Series: ${personaje.tvShows.length}</p>
                 </div>
             </div>
         `;
     });
 }
-
 document
 .getElementById("btnBuscar")
 .addEventListener("click", buscarPersonaje);
