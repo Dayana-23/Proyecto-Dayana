@@ -185,6 +185,7 @@ input{
     opacity: 0.9;
     pointer-events: none;
     animation: flotar 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px gold);
 }
 
 @keyframes flotar{
