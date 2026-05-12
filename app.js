@@ -23,6 +23,8 @@ async function obtenerDatos(){
 function mostrarInicio(){
     document.getElementById("inicio").style.display = "block";
     document.getElementById("contenedor").innerHTML = "";
+
+    document.querySelector(".rapunzel-torre").style.display = "block";
 }
 
 function cambiarInfo(card){
@@ -37,6 +39,7 @@ function cambiarInfo(card){
 
 async function mostrarPersonajes(){
     document.getElementById("inicio").style.display = "none";
+    document.querySelector(".rapunzel-torre").style.display = "none";
 
     let personajes = await obtenerDatos();
     let contenedor = document.getElementById("contenedor");
@@ -58,11 +61,10 @@ async function mostrarPersonajes(){
                     <p>${personaje.films[0] || "Disney"}</p>
 
                     <div class="info">
-   <p>Aparece en: ${detalle}</p>
-   <p>Películas: ${personaje.films.length}</p>
-   <p>Series: ${personaje.tvShows.length}</p>
-</div>
-        
+                        <p>Aparece en: ${detalle}</p>
+                        <p>Películas: ${personaje.films.length}</p>
+                        <p>Series: ${personaje.tvShows.length}</p>
+                    </div>
                 </div>
             `;
         }
@@ -71,6 +73,7 @@ async function mostrarPersonajes(){
 
 async function mostrarPeliculas(){
     document.getElementById("inicio").style.display = "none";
+    document.querySelector(".rapunzel-torre").style.display = "none";
 
     let personajes = await obtenerDatos();
     let contenedor = document.getElementById("contenedor");
@@ -99,9 +102,9 @@ async function mostrarPeliculas(){
     });
 }
 
-
 async function buscarPersonaje(){
     let nombre = document.getElementById("buscador").value.trim();
+    document.querySelector(".rapunzel-torre").style.display = "none";
 
     document.getElementById("inicio").style.display = "none";
 
@@ -148,10 +151,10 @@ async function buscarPersonaje(){
         console.log(error);
     }
 }
+
 document
 .getElementById("btnBuscar")
 .addEventListener("click", buscarPersonaje);
 
 mostrarInicio();
-personaje.name.toLowerCase().includes(nombre)
 
