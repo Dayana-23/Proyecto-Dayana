@@ -182,6 +182,7 @@ input{
     bottom: 0;
     right: 0;
     width: 300px;
+    z-index:999;
     opacity: 0.9;
     pointer-events: none;
     animation: flotar 4s ease-in-out infinite;
