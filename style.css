@@ -178,13 +178,16 @@ input{
     }
 }
 .rapunzel-torre{
+
     position: fixed;
-    bottom: -10;
+    bottom: 0;
     right: 0;
-    width: 420px;
-    z-index:9999;
-    opacity: 0.9;
+    width: 350px;
+    z-index: 9999;
     pointer-events: none;
+
+    opacity: 0.9;
+    
     animation: flotar 4s ease-in-out infinite;
     filter: drop-shadow(0 0 12px gold);
 }
