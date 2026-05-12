@@ -179,7 +179,7 @@ input{
 }
 .rapunzel-torre{
     position: fixed;
-    bottom: 0;
+    bottom: -10;
     right: 0;
     width: 420px;
     z-index:9999;
