@@ -8,7 +8,6 @@ body{
     position: relative;
 }
 
-
 body::before{
     content: "";
     position: fixed;
@@ -31,7 +30,6 @@ body::before{
     }
 }
 
-
 header{
     background: linear-gradient(90deg,#c084fc,#f9a8d4,#c084fc);
     padding: 25px;
@@ -41,7 +39,6 @@ header{
 h1, h2{
     text-shadow: 0 0 12px rgba(255,255,255,0.5);
 }
-
 
 nav button{
     padding: 12px 22px;
@@ -60,7 +57,6 @@ nav button{
 nav button:hover{
     transform: scale(1.05);
 }
-
 
 #inicio{
     padding: 100px 20px;
@@ -92,7 +88,6 @@ nav button:hover{
     margin-bottom: 20px;
 }
 
-
 input{
     padding: 14px;
     width: 280px;
@@ -115,7 +110,6 @@ input{
     box-shadow: 0 4px 12px rgba(255,255,255,0.3);
 }
 
-
 #contenedor{
     display: flex;
     flex-wrap: wrap;
@@ -124,18 +118,21 @@ input{
     padding: 30px;
 }
 
-
-
-  .card img{
-    width: 180px;
-    height: 220px;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    margin: 0 auto 10px auto;
-    border-radius: 15px;
-    border: 3px solid white;
-}
+.card{
+    width: 230px;
+    min-height: 380px;
+    border-radius: 25px;
+    padding: 18px;
+    border: 10px solid #f9a8d4;
+    cursor: pointer;
+    background: linear-gradient(135deg,#c084fc,#f9a8d4,#ddd6fe);
+    color: white;
+    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .card:hover{
@@ -143,14 +140,15 @@ input{
 }
 
 .card img{
-    width: 170px;
-    height: 200px;
+    width: 180px;
+    height: 220px;
     object-fit: cover;
     object-position: center;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 12px auto;
     border-radius: 15px;
     border: 3px solid white;
+    background: rgba(255,255,255,0.2);
 }
 
 .info{
@@ -159,10 +157,34 @@ input{
     font-size: 14px;
 }
 
-/* Responsive */
+.rapunzel-torre{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.9;
+    animation: flotar 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px gold);
+}
+
+@keyframes flotar{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
 @media(max-width:768px){
     .card{
         width: 180px;
+        min-height: 340px;
     }
 
     input{
@@ -177,30 +199,8 @@ input{
     #inicio h2{
         font-size: 30px;
     }
-}
-.rapunzel-torre{
 
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 350px;
-    z-index: 9999;
-    pointer-events: none;
-
-    opacity: 0.9;
-    
-    animation: flotar 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 12px gold);
-}
-
-@keyframes flotar{
-    0%{
-        transform: translateY(0px);
-    }
-    50%{
-        transform: translateY(-10px);
-    }
-    100%{
-        transform: translateY(0px);
+    .rapunzel-torre{
+        width: 220px;
     }
 }
