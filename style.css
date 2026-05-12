@@ -8,7 +8,7 @@ body{
     position: relative;
 }
 
-/* Estrellas doradas */
+
 body::before{
     content: "";
     position: fixed;
@@ -31,7 +31,7 @@ body::before{
     }
 }
 
-/* Header */
+
 header{
     background: linear-gradient(90deg,#c084fc,#f9a8d4,#c084fc);
     padding: 25px;
@@ -42,7 +42,7 @@ h1, h2{
     text-shadow: 0 0 12px rgba(255,255,255,0.5);
 }
 
-/* Menu */
+
 nav button{
     padding: 12px 22px;
     margin: 8px;
@@ -61,7 +61,7 @@ nav button:hover{
     transform: scale(1.05);
 }
 
-/* Inicio */
+
 #inicio{
     padding: 100px 20px;
     min-height: 100vh;
@@ -92,7 +92,7 @@ nav button:hover{
     margin-bottom: 20px;
 }
 
-/* Buscador */
+
 input{
     padding: 14px;
     width: 280px;
@@ -115,7 +115,7 @@ input{
     box-shadow: 0 4px 12px rgba(255,255,255,0.3);
 }
 
-/* Contenedor */
+
 #contenedor{
     display: flex;
     flex-wrap: wrap;
@@ -124,17 +124,18 @@ input{
     padding: 30px;
 }
 
-/* Cards tipo photoholder */
-.card{
-    width: 230px;
-    border-radius: 25px;
-    padding: 15px;
-    border: 10px solid #f9a8d4;
-    cursor: pointer;
-    background: linear-gradient(135deg,#c084fc,#f9a8d4,#ddd6fe);
-    color: white;
-    box-shadow: 0 8px 20px rgba(255,255,255,0.2);
-    transition: transform 0.3s;
+
+
+  .card img{
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 15px;
+    border: 3px solid white;
+}
 }
 
 .card:hover{
