@@ -1,0 +1,18 @@
+# Disney API Project 👑✨
+
+Proyecto realizado con HTML, CSS y JavaScript consumiendo una API de Disney.
+
+## Funciones
+- Buscar personajes Disney
+- Mostrar personajes
+- Mostrar películas
+- Diseño responsive
+- Información interactiva en tarjetas
+
+## API utilizada
+https://api.disneyapi.dev/
+
+## Tecnologías
+- HTML
+- CSS
+- JavaScript
